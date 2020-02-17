@@ -1,13 +1,144 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Styles for bot */
+.chat-container {
+  position: fixed;
+  display: none;
+  width: 350px;
+  right: 35px;
+  height: 80%;
+  bottom: 90px;
+  background-color: white;
+  z-index: 9999 !important;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.041) 0 0 10px 7px,
+    rgba(46, 45, 45, 0.041) 0 0 10px 7px;
+  overflow-y: auto;
+}
+
+#mainBtn {
+  padding-left: 22px;
+  padding-right: 22px;
+  position: fixed;
+  right: 35px;
+  bottom: 20px;
+  border-radius: 22px;
+  width: auto;
+  font-size: 18px;
+  font-weight: 500;
+  animation: btnOnLoad 1s;
+  transition: all 1s ease-in;
+  z-index: 99 !important;
+}
+
+.btn {
+  border-radius: 10px !important;
+}
+
+#mainBtn:hover {
+  box-shadow: rgba(0, 0, 0, 0.082) 0 0 10px 7px;
+}
+
+.msg-send {
+  position: fixed;
+  bottom: 90px;
+  width: 350px;
+  z-index: 9999999;
+  background-color: white;
+}
+
+.msg-bot {
+  max-width: 80%;
+  width: auto;
+  margin-left: 10%;
+  border-radius: 17px;
+  height: auto;
+  background-color: #e9ecef;
+  padding: 0.5rem 1rem;
+  word-wrap: break-word;
+}
+
+.msg-bot1 {
+  max-width: 80%;
+  width: auto;
+  margin-left: 10%;
+  border-top-left-radius: 17px;
+  border-top-right-radius: 17px;
+  height: auto;
+  background-color: #e9ecef;
+  padding: 0.5rem 1rem;
+  word-wrap: break-word;
+}
+
+.server-btn-response {
+  max-width: 80%;
+  width: auto;
+  margin-left: 10%;
+  padding: 0.5rem 1rem;
+  word-wrap: break-word;
+  border: 1px solid #e9ecef;
+  border-top: 0;
+}
+
+.server-btn-response-last {
+  max-width: 80%;
+  width: auto;
+  margin-left: 10%;
+  padding: 0.5rem 1rem;
+  word-wrap: break-word;
+  border: 1px solid #e9ecef;
+  border-bottom-right-radius: 17px;
+  border-bottom-left-radius: 17px;
+  border-top: 0;
+}
+
+.server-btn-response,
+.server-btn-response-last:hover {
+  cursor: pointer;
+}
+
+.msg-user {
+  max-width: 80%;
+  width: auto;
+  margin-right: 10%;
+  border-radius: 17px;
+  height: auto;
+  color: white;
+  padding: 0.5rem 1rem;
+  word-wrap: break-word;
+}
+
+.close-btn {
+  padding-right: 3%;
+  padding-top: 3%;
+  font-size: 25px;
+  font-weight: 100 !important;
+  color: rgba(0, 0, 0, 0.514);
+  display: none !important;
+  width: 100%;
+  background-color: white;
+}
+
+.msg-container {
+  margin-bottom: 50px;
+}
+
+/* .MuiGrid-container {
+  width: auto !important;
+} */
