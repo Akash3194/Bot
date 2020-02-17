@@ -5,17 +5,18 @@ import Landing from "./components/Landing/Landing";
 import Footer from "./components/Footer/Footer";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
+import Bot from "./components/Bot/Bot";
 
 class App extends React.Component {
   render() {
     return (
       <Router>
         <Route path="/" component={Navbar} />
-        <Route exact path="/" component={Landing} />
+        <Route path="/" component={Bot} />
 
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-
+        <Route exact path="/" component={Landing} />
         <Route path="/" component={Footer} />
       </Router>
     );

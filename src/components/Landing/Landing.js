@@ -6,6 +6,7 @@ import HowItWorks from "../HowItWorks/HowItWorks";
 import Home from "../Home/Home";
 import ContactUs from "../ContactUs/ContactUs";
 import useStyles from "../BasicStyles/BasicStyles";
+import Bot from "../Bot/Bot";
 
 const theme = createMuiTheme({
   overrides: {
