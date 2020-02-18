@@ -11,6 +11,7 @@ const HowItWorks = ({
   step,
   widthFluid,
 }) => {
+  const lastChat = "Welcome :)";
   return (
     <Fragment>
       <Container maxWidth="xl" className={boxSection} id="howItWorks">
@@ -106,7 +107,7 @@ const HowItWorks = ({
             <img src={botChatImage} alt="" className={chatImg} />
           </Grid>
           <Grid item xs={9} className={`${center} ${step}`}>
-            <Box className={widthFluid}>Welcome :)</Box>
+            <Box className={widthFluid}>{lastChat}</Box>
           </Grid>
         </Grid>
       </Container>

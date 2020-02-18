@@ -13,18 +13,22 @@ import unlimitedImage from "./../../images/unlimited.png";
 import cheapImage from "./../../images/cheap.png";
 import fastImage from "./../../images/fast.png";
 
-const About = ({
-  boxSection,
-  center,
-  my4,
-  heightFluid,
-  root,
-  zeroRadius,
-  pt4,
-  textCenter,
-  imgFluid,
-  cardItem,
-}) => {
+const About = (
+  {
+    boxSection,
+    center,
+    my4,
+    heightFluid,
+    root,
+    zeroRadius,
+    pt4,
+    textCenter,
+    imgFluid,
+    cardItem,
+  },
+  props,
+) => {
+  console.log(props.history);
   return (
     <Fragment>
       <Container maxWidth="lg" className={boxSection} id="about">

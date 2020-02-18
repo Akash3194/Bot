@@ -6,7 +6,7 @@ import HowItWorks from "../HowItWorks/HowItWorks";
 import Home from "../Home/Home";
 import ContactUs from "../ContactUs/ContactUs";
 import useStyles from "../BasicStyles/BasicStyles";
-import Bot from "../Bot/Bot";
+// import Bot from "../Bot/Bot";
 
 const theme = createMuiTheme({
   overrides: {
@@ -37,7 +37,7 @@ const theme = createMuiTheme({
   },
 });
 
-const Landing = () => {
+const Landing = props => {
   const classes = useStyles();
   return (
     <Fragment>
@@ -74,7 +74,7 @@ const Landing = () => {
         chatImg={classes.chatImg}
         widthFluid={classes.widthFluid}
       />
-
+      {/* <Bot /> */}
       {/* For Contact Us Section */}
       <ContactUs
         noPadding={classes.noPadding}

@@ -1,6 +1,6 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
-const themeForButtonFieldRadius = createMuiTheme({
+const theme = createMuiTheme({
   overrides: {
     MuiOutlinedInput: {
       notchedOutline: {
@@ -15,4 +15,4 @@ const themeForButtonFieldRadius = createMuiTheme({
   },
 });
 
-export default themeForButtonFieldRadius;
+export default theme;

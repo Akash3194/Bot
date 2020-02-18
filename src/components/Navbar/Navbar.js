@@ -9,6 +9,10 @@ import {
   AppBar,
   Toolbar,
   Typography,
+  Avatar,
+  Button,
+  Menu,
+  MenuItem,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
@@ -49,6 +53,16 @@ const useStyles = makeStyles(theme => ({
 const Navbar = () => {
   const classes = useStyles();
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     //   Navbar starts
     <div className={classes.root}>
@@ -79,7 +93,7 @@ const Navbar = () => {
               </Box>
             </Grid>
             <Grid item xs={false} sm={"auto"} md={1}>
-              <a href="#home" className={classes.aRemoveDefault}>
+              <a href="/#home" className={classes.aRemoveDefault}>
                 <Box display={{ xs: "none", sm: "block" }}>
                   <Typography
                     variant="subtitle1"
@@ -91,7 +105,7 @@ const Navbar = () => {
               </a>
             </Grid>
             <Grid item xs={false} sm={"auto"} md={1}>
-              <a href="#about" className={classes.aRemoveDefault}>
+              <a href="/#about" className={classes.aRemoveDefault}>
                 <Box display={{ xs: "none", sm: "block" }}>
                   <Typography
                     variant="subtitle1"
@@ -103,7 +117,7 @@ const Navbar = () => {
               </a>
             </Grid>
             <Grid item xs={false} sm={"auto"}>
-              <a href="#howItWorks" className={classes.aRemoveDefault}>
+              <a href="/#howItWorks" className={classes.aRemoveDefault}>
                 <Box display={{ xs: "none", sm: "block" }}>
                   <Typography
                     variant="subtitle1"
@@ -115,7 +129,7 @@ const Navbar = () => {
               </a>
             </Grid>
             <Grid item xs={false} sm={"auto"}>
-              <a href="#contactus" className={classes.aRemoveDefault}>
+              <a href="/#contactus" className={classes.aRemoveDefault}>
                 <Box display={{ xs: "none", sm: "block" }}>
                   <Typography
                     variant="subtitle1"
@@ -150,6 +164,28 @@ const Navbar = () => {
                 </Box>
               </Link>
             </Grid>
+            {/* Code for user menu starts */}
+            {/* <Box>
+              <Button
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+              >
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+              </Button>
+              <Menu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My Bots</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+              </Menu>
+            </Box> */}
+            {/* Code for user menu ends */}
           </Grid>
         </Toolbar>
       </AppBar>

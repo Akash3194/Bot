@@ -60,6 +60,9 @@ const useStyles = makeStyles(theme => ({
   mt4: {
     marginTop: "1.5rem",
   },
+  ml4: {
+    marginLeft: "1.5rem",
+  },
   mt100: {
     marginTop: "100px",
   },

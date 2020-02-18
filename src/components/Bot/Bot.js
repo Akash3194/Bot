@@ -1,12 +1,13 @@
 import React, { Fragment } from "react";
 import { Button, Box, TextField } from "@material-ui/core";
-import themeForButtonFieldRadius from "./../Themes/themeForButtonFieldRadius";
+import theme from "./../Themes/themeForButtonFieldRadius";
 import { ThemeProvider } from "@material-ui/core/styles";
 import useStyles from "../BasicStyles/BasicStyles";
 
 import CloseIcon from "@material-ui/icons/Close";
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
 import SendIcon from "@material-ui/icons/Send";
+
 const Bot = () => {
   const classes = useStyles();
 
@@ -67,16 +68,12 @@ const Bot = () => {
           <Box className="msg-container">
             {/* Div for the bot msg */}
             {/* <div id="msg-container-bot" class="d-flex justify-content-start">
-    <div class="msg-bot mt-4">
-      hellosssssssssssssssssssssssssssssssssssssssssssssssssssss
-    </div>
-  </div> */}
+              <div class="msg-bot mt-4">
+                hellosssssssssssssssssssssssssssssssssssssssssssssssssssss
+              </div>
+            </div> */}
             {/* Div for the user msg */}
-            {/* <div id="msg-container-user" class="d-flex justify-content-end">
-    <div class="msg-user bg-primary  mt-4 ">
-      hello
-    </div>
-  </div> */}
+
             {/* Test */}
             {/* <div
     id="msg-container-bot"
@@ -114,22 +111,34 @@ const Bot = () => {
                 FAQ
               </Box>
             </Box>
+            <Box
+              id="msg-container-user"
+              display="flex"
+              justifyContent="flex-end"
+            >
+              <Box className={`msg-user ${classes.mt4} `}>
+                hellobksjefhkhskh
+              </Box>
+            </Box>
           </Box>
-          {/* Div for imput and send button */}
-          <Box className={`msg-send`} display="flex">
-            <TextField
-              variant="outlined"
-              color="primary"
-              label="Enter message"
-              fullWidth
-            />
-            <Button variant="contained" color="secondary">
-              <SendIcon></SendIcon>
-            </Button>
-          </Box>
+          {/* Div for input and send button */}
+          <ThemeProvider theme={theme}>
+            <Box className={`msg-send`} display="flex">
+              <TextField
+                variant="outlined"
+                color="primary"
+                label="Enter message"
+                fullWidth
+                id="message"
+              />
+              <Button variant="contained" color="secondary">
+                <SendIcon></SendIcon>
+              </Button>
+            </Box>
+          </ThemeProvider>
         </div>
         {/* Button to show and hide the chat bot ui */}
-        <ThemeProvider theme={themeForButtonFieldRadius}>
+        <ThemeProvider theme={theme}>
           <Button
             variant="contained"
             color="primary"
@@ -147,8 +156,6 @@ const Bot = () => {
               }
             >
               <CloseIcon></CloseIcon>
-
-              {/* <span id="close">Close</span> */}
             </Box>
             <Box
               display="flex"
@@ -161,11 +168,9 @@ const Bot = () => {
               }
             >
               <ChatBubbleIcon></ChatBubbleIcon>&nbsp;
-              {/* <span id="demo">Demo</span> */}
             </Box>
           </Button>
         </ThemeProvider>
-        {/* <button id="mainBtn" className="btn btn-primary"></button> */}
         {/* Code for bot messages ends */}
       </div>
     </Fragment>
