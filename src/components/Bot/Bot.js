@@ -16,6 +16,16 @@ const Bot = () => {
   };
 
   const [data, setData] = React.useState(initialState);
+  const [botMessages, setBotMessages] = React.useState([
+    {
+      botMsg: "hello",
+      userMsg: "ddn",
+    },
+  ]);
+
+  const [userMessage, setUserMessage] = React.useState({
+    userMsg: "",
+  });
 
   const chatContainerStyleFalse = {
     animation: "chatContainerHide 0.5s",
@@ -51,31 +61,51 @@ const Bot = () => {
       isDisplayed: !data.isDisplayed,
     });
   };
+
+  const handleChange = event => {
+    setUserMessage({
+      userMsg: event.target.value,
+    });
+  };
+
+  const handleMessages = () => {
+    const userMsg = userMessage.userMsg;
+    const botMsg = "hello";
+    const messages = {
+      botMsg,
+      userMsg,
+    };
+    setUserMessage({
+      userMsg: "",
+    });
+    botMessages.push(messages);
+    setBotMessages([...botMessages]);
+  };
+
   return (
     <Fragment>
-      <div>
-        {/* Code for bot messages starts */}
-        <div
-          className="chat-container "
-          style={
-            data.isDisplayed ? chatContainerStyleTrue : chatContainerStyleFalse
-          }
-        >
-          <div className="d-flex justify-content-end sticky-top close-btn">
+      {/* Code for bot messages starts */}
+
+      <div
+        className="chat-container "
+        style={
+          data.isDisplayed ? chatContainerStyleTrue : chatContainerStyleFalse
+        }
+      >
+        {/* <div className="d-flex justify-content-end sticky-top close-btn">
             <i className="fa fa-times" aria-hidden="true" />
-          </div>
-          {/* Main container to hold the messages */}
-          <Box className="msg-container">
-            {/* Div for the bot msg */}
-            {/* <div id="msg-container-bot" class="d-flex justify-content-start">
+          </div> */}
+        {/* Main container to hold the messages */}
+        <Box className="msg-container" pt="1.25rem">
+          {/* Div for the bot msg */}
+          {/* <div id="msg-container-bot" class="d-flex justify-content-start">
               <div class="msg-bot mt-4">
                 hellosssssssssssssssssssssssssssssssssssssssssssssssssssss
               </div>
             </div> */}
-            {/* Div for the user msg */}
-
-            {/* Test */}
-            {/* <div
+          {/* Div for the user msg */}
+          {/* Test */}
+          {/* <div
     id="msg-container-bot"
     class="d-flex justify-content-start  flex-column"
   >
@@ -91,7 +121,7 @@ const Bot = () => {
       hello
     </div>
   </div> */}
-            <Box
+          {/* <Box
               id="msg-container-bot"
               display="flex"
               flexDirection="column"
@@ -119,60 +149,84 @@ const Bot = () => {
               <Box className={`msg-user ${classes.mt4} `}>
                 hellobksjefhkhskh
               </Box>
-            </Box>
-          </Box>
-          {/* Div for input and send button */}
-          <ThemeProvider theme={theme}>
-            <Box className={`msg-send`} display="flex">
-              <TextField
-                variant="outlined"
-                color="primary"
-                label="Enter message"
-                fullWidth
-                id="message"
-              />
-              <Button variant="contained" color="secondary">
-                <SendIcon></SendIcon>
-              </Button>
-            </Box>
-          </ThemeProvider>
-        </div>
-        {/* Button to show and hide the chat bot ui */}
+            </Box> */}
+          {botMessages.map((val, index) => {
+            return (
+              <Fragment key={index}>
+                <Box
+                  id="msg-container-user"
+                  display="flex"
+                  justifyContent="flex-end"
+                >
+                  <Box className={`msg-user ${classes.mb4} `}>
+                    {val.userMsg}
+                  </Box>
+                </Box>
+                <Box
+                  id="msg-container-bot"
+                  display="flex"
+                  // flexDirection="column"
+                  justifyContent="flex-start"
+                >
+                  <Box className={`msg-bot ${classes.mb4}`}>{val.botMsg}</Box>
+                </Box>
+              </Fragment>
+            );
+          })}
+        </Box>
+        {/* Div for input and send button */}
         <ThemeProvider theme={theme}>
-          <Button
-            variant="contained"
-            color="primary"
-            id="mainBtn"
-            onClick={handleDemoClick}
-          >
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              style={
-                data.isDisplayed
-                  ? mainBtnStyleTrue.hide
-                  : mainBtnStyleFalse.hide
-              }
+          <Box className={`msg-send`} display="flex" mt="1.5rem">
+            <TextField
+              variant="outlined"
+              color="primary"
+              label="Enter message"
+              fullWidth
+              id="message"
+              onChange={handleChange}
+              value={userMessage.userMsg}
+            />
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleMessages}
             >
-              <CloseIcon></CloseIcon>
-            </Box>
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              style={
-                data.isDisplayed
-                  ? mainBtnStyleTrue.show
-                  : mainBtnStyleFalse.show
-              }
-            >
-              <ChatBubbleIcon></ChatBubbleIcon>&nbsp;
-            </Box>
-          </Button>
+              <SendIcon></SendIcon>
+            </Button>
+          </Box>
         </ThemeProvider>
-        {/* Code for bot messages ends */}
       </div>
+      {/* Button to show and hide the chat bot ui */}
+      <ThemeProvider theme={theme}>
+        <Button
+          variant="contained"
+          color="primary"
+          id="mainBtn"
+          onClick={handleDemoClick}
+        >
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            style={
+              data.isDisplayed ? mainBtnStyleTrue.hide : mainBtnStyleFalse.hide
+            }
+          >
+            <CloseIcon></CloseIcon>
+          </Box>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            style={
+              data.isDisplayed ? mainBtnStyleTrue.show : mainBtnStyleFalse.show
+            }
+          >
+            <ChatBubbleIcon></ChatBubbleIcon>&nbsp;
+          </Box>
+        </Button>
+      </ThemeProvider>
+      {/* Code for bot messages ends */}
     </Fragment>
   );
 };
