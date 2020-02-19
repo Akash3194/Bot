@@ -7,6 +7,7 @@ import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Bot from "./components/Bot/Bot";
 import Profile from "./components/Profile/Profile";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 
 class App extends React.Component {
   render() {
@@ -18,7 +19,8 @@ class App extends React.Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/" component={Landing} />
-        <Route path="/" component={Footer} />
+        <Route exact path="/" component={Footer} />
+        <Route path="/forgotPassword" component={ForgotPassword} />
       </Router>
     );
   }

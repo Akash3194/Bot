@@ -180,8 +180,12 @@ const Navbar = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My Bots</MenuItem>
+                <Link to="myProfile" className={classes.aRemoveDefault}>
+                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                </Link>
+                <Link to="myBots" className={classes.aRemoveDefault}>
+                  <MenuItem onClick={handleClose}>My Bots</MenuItem>
+                </Link>
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
               </Menu>
             </Box> */}

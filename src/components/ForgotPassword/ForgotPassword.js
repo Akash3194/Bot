@@ -1,21 +1,19 @@
 import React, { Fragment } from "react";
 import { Container, TextField, Button, Typography } from "@material-ui/core";
-import { Link } from "react-router-dom";
 import SendIcon from "@material-ui/icons/Send";
 import useStyles from "../BasicStyles/BasicStyles";
 import theme from "./../Themes/themeForButtonFieldRadius";
 import { ThemeProvider } from "@material-ui/core/styles";
-import VpnKeyIcon from "@material-ui/icons/VpnKey";
-import { baseUrl } from "../Urls/url";
 import Axios from "axios";
+import { baseUrl } from "../Urls/url";
 
-const Login = props => {
+function ForgotPassword() {
   const classes = useStyles();
 
   const initialState = {
     email: "",
     password: "",
-    loading: false,
+    password2: "",
   };
 
   const [data, setData] = React.useState(initialState);
@@ -34,14 +32,17 @@ const Login = props => {
       ...data,
       loading: true,
     });
+
     const formData = new FormData();
     formData.append("email", data.email);
     formData.append("password", data.password);
+
     Axios.post(baseUrl, formData)
       .then(user => {
         setData({
           ...data,
           loading: false,
+          isOtpDisplayed: true,
         });
       })
       .catch(err => {});
@@ -51,7 +52,7 @@ const Login = props => {
     <Fragment>
       <Container maxWidth="sm" className={`${classes.mt100} ${classes.my4}`}>
         <Typography variant="h4" className={`${classes.bold} ${classes.my4}`}>
-          Login Page
+          Forgot Password Page
         </Typography>
 
         <form action="" onSubmit={handleSubmit}>
@@ -61,10 +62,9 @@ const Login = props => {
               label="Enter Email"
               variant="outlined"
               name="email"
-              // value={this.state.username}
+              value={data.email}
               onChange={handleChange}
               fullWidth
-              value={data.email}
             />
             <TextField
               type="password"
@@ -72,34 +72,36 @@ const Login = props => {
               label="Enter Password"
               variant="outlined"
               name="password"
-              // value={this.state.password}
-              onChange={handleChange}
               value={data.password}
+              onChange={handleChange}
               fullWidth
             />
+            <TextField
+              type="password"
+              className={`${classes.mb4}`}
+              label="confirm Password"
+              variant="outlined"
+              name="password2"
+              value={data.password2}
+              onChange={handleChange}
+              fullWidth
+            />
+
             <Button
               type="submit"
               variant="outlined"
               color="primary"
+              //   className={classes.mt4}
               // onSubmit={this.handleSubmit}
             >
               Submit&nbsp;
               <SendIcon></SendIcon>
             </Button>
-            <Link to="/forgotPassword" style={{ textDecoration: "none" }}>
-              <Button
-                variant="outlined"
-                color="secondary"
-                className={classes.ml4}
-              >
-                Forgot Password&nbsp; <VpnKeyIcon></VpnKeyIcon>
-              </Button>
-            </Link>
           </ThemeProvider>
         </form>
       </Container>
     </Fragment>
   );
-};
+}
 
-export default Login;
+export default ForgotPassword;
