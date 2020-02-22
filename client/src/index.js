@@ -5,9 +5,10 @@ import "./index.css";
 import App from "./App";
 // import notification from "./Services/notifications";
 import * as serviceWorker from "./serviceWorker";
+import notification from "./Services/notifications";
 
 const Main = withRouter(props => {
-  return <App {...props} />;
+  return <App {...props} noty={new notification()} />;
 });
 
 ReactDOM.render(

@@ -57,9 +57,11 @@ const Signup = props => {
           loading: false,
           isOtpDisplayed: true,
         });
-        console.log(user);
+        props.noty.success("Signed up Successfully");
       })
-      .catch(err => {});
+      .catch(err => {
+        props.noty.error(err.response.data.err);
+      });
   };
 
   const handleOtpValidation = () => {
@@ -80,6 +82,7 @@ const Signup = props => {
       })
       .catch(err => {});
   };
+  console.log(props);
 
   return (
     <Fragment>

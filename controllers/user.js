@@ -127,8 +127,7 @@ module.exports = {
   postRegister: (req, res) => {
     User.findOne({ email: req.body.email }).then(user => {
       if (user) {
-        errors.push({ text: "User already exist!" });
-        res.render("index", { errors, link });
+        return res.status(400).json({ err: "User already exists" });
       } else {
         const newUser = new User({
           firstName: req.body.firstName,
@@ -248,8 +247,7 @@ module.exports = {
     let errors = [];
     User.findOne({ email: req.body.email }).then(user => {
       if (!user) {
-        errors.push({ text: "User not found" });
-        res.render("index", { errors, link });
+        res.status(404).json({ err: "User does not exist" });
       } else {
         User.findOne({ email: req.body.email }, { isVerified: 1, _id: 0 }).then(
           obj => {

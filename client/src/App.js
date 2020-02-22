@@ -21,7 +21,11 @@ class App extends React.Component {
         <Route path="/:userId/drawer/userProfile" component={Profile} />
         <Route path="/:userId/drawer/myChatbots" component={ChatBots} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />
+        <Route
+          exact
+          path="/signup"
+          render={props => <Signup {...props} noty={this.props.noty} />}
+        />
         <Route exact path="/" component={Landing} />
         <Route exact path="/" component={Footer} />
         <Route exact path="/forgotPassword" component={ForgotPassword} />
