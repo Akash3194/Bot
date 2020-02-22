@@ -50,13 +50,14 @@ const Signup = props => {
     formData.append("firstName", data.firstName);
     formData.append("lastName", data.lastName);
 
-    Axios.post(baseUrl, formData)
+    Axios.post("/register", formData)
       .then(user => {
         setData({
           ...data,
           loading: false,
           isOtpDisplayed: true,
         });
+        console.log(user);
       })
       .catch(err => {});
   };
