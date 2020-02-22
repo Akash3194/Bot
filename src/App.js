@@ -8,19 +8,23 @@ import Signup from "./components/Signup/Signup";
 import Bot from "./components/Bot/Bot";
 import Profile from "./components/Profile/Profile";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
+import Drawer from "./components/Drawer/Drawer";
+import ChatBots from "./components/ChatBots/ChatBots";
 
 class App extends React.Component {
   render() {
     return (
       <Router>
-        <Route path="/" component={Navbar} />
-        <Route path="/" component={Bot} />
-        <Route path="/userProfile" component={Profile} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
+        <Route path={/^\/*[a-zA-Z0-9]*(?!([^/].+))$/} component={Navbar} />
+        <Route path={/^\/*[a-zA-Z0-9]*(?!([^/].+))$/} component={Bot} />
+        <Route path="/:userId/drawer" component={Drawer}></Route>
+        <Route path="/:userId/drawer/userProfile" component={Profile} />
+        <Route path="/:userId/drawer/myChatbots" component={ChatBots} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
         <Route exact path="/" component={Landing} />
         <Route exact path="/" component={Footer} />
-        <Route path="/forgotPassword" component={ForgotPassword} />
+        <Route exact path="/forgotPassword" component={ForgotPassword} />
       </Router>
     );
   }

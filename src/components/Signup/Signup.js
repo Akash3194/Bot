@@ -83,90 +83,98 @@ const Signup = props => {
   return (
     <Fragment>
       <Container maxWidth="sm" className={`${classes.mt100} ${classes.my4}`}>
-        <Typography variant="h4" className={`${classes.bold} ${classes.my4}`}>
-          Signup Page
-        </Typography>
+        <Box
+          borderColor="primary.main"
+          border={1}
+          px="3.5rem"
+          pb="2rem"
+          boxShadow={3}
+        >
+          <Typography variant="h4" className={`${classes.bold} ${classes.my4}`}>
+            Signup Page
+          </Typography>
 
-        <form action="" onSubmit={handleSubmit}>
-          <ThemeProvider theme={theme}>
-            <Box display="flex" className={`${classes.mb4}`}>
+          <form action="" onSubmit={handleSubmit}>
+            <ThemeProvider theme={theme}>
+              <Box display="flex" className={`${classes.mb4}`}>
+                <TextField
+                  label="Enter First Name"
+                  variant="outlined"
+                  name="firstName"
+                  value={data.firstName}
+                  onChange={handleChange}
+                  fullWidth
+                />
+                <TextField
+                  label="Enter Last Name"
+                  variant="outlined"
+                  name="lastName"
+                  className={`${classes.ml4}`}
+                  value={data.lastName}
+                  onChange={handleChange}
+                  fullWidth
+                />
+              </Box>
               <TextField
-                label="Enter First Name"
+                className={`${classes.mb4}`}
+                label="Enter Email"
                 variant="outlined"
-                name="firstName"
-                value={data.firstName}
+                name="email"
+                value={data.email}
                 onChange={handleChange}
                 fullWidth
               />
               <TextField
-                label="Enter Last Name"
+                type="password"
+                className={data.isOtpDisplayed ? `${classes.mb4}` : ""}
+                label="Enter Password"
                 variant="outlined"
-                name="lastName"
-                className={`${classes.ml4}`}
-                value={data.lastName}
+                name="password"
+                value={data.password}
                 onChange={handleChange}
                 fullWidth
               />
-            </Box>
-            <TextField
-              className={`${classes.mb4}`}
-              label="Enter Email"
-              variant="outlined"
-              name="email"
-              value={data.email}
-              onChange={handleChange}
-              fullWidth
-            />
-            <TextField
-              type="password"
-              className={data.isOtpDisplayed ? `${classes.mb4}` : ""}
-              label="Enter Password"
-              variant="outlined"
-              name="password"
-              value={data.password}
-              onChange={handleChange}
-              fullWidth
-            />
-            {data.isOtpDisplayed ? (
-              <TextField
-                type="text"
-                // className={`${classes.mb4}`}
-                label="Enter otp"
-                variant="outlined"
-                name="otp"
-                value={data.otp}
-                onChange={handleChange}
-                fullWidth
-              />
-            ) : (
-              ""
-            )}
+              {data.isOtpDisplayed ? (
+                <TextField
+                  type="text"
+                  className={`${classes.mb4}`}
+                  label="Enter otp"
+                  variant="outlined"
+                  name="otp"
+                  value={data.otp}
+                  onChange={handleChange}
+                  fullWidth
+                />
+              ) : (
+                ""
+              )}
 
-            <Button
-              type="submit"
-              variant="outlined"
-              color="primary"
-              className={classes.mt4}
-              // onSubmit={this.handleSubmit}
-            >
-              Submit&nbsp;
-              <SendIcon></SendIcon>
-            </Button>
-            {data.isOtpDisplayed ? (
               <Button
+                type="submit"
                 variant="outlined"
                 color="primary"
-                className={`${classes.ml4}`}
-                onClick={handleOtpValidation}
+                className={data.isOtpDisplayed ? "" : classes.mt4}
+                // onSubmit={this.handleSubmit}
               >
-                Validate Otp{"   "}
-                <SecurityIcon></SecurityIcon>
+                Submit&nbsp;
+                <SendIcon></SendIcon>
               </Button>
-            ) : (
-              ""
-            )}
-          </ThemeProvider>
-        </form>
+              {data.isOtpDisplayed ? (
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  className={`${classes.ml4}`}
+                  onClick={handleOtpValidation}
+                >
+                  Validate Otp{"   "}
+                  <SecurityIcon></SecurityIcon>
+                </Button>
+              ) : (
+                ""
+              )}
+            </ThemeProvider>
+          </form>
+        </Box>
       </Container>
     </Fragment>
   );

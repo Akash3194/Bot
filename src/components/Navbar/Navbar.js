@@ -9,10 +9,6 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Avatar,
-  Button,
-  Menu,
-  MenuItem,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
@@ -52,16 +48,6 @@ const useStyles = makeStyles(theme => ({
 
 const Navbar = () => {
   const classes = useStyles();
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleClick = event => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   return (
     //   Navbar starts
@@ -164,32 +150,6 @@ const Navbar = () => {
                 </Box>
               </Link>
             </Grid>
-            {/* Code for user menu starts */}
-            {/* <Box>
-              <Button
-                aria-controls="simple-menu"
-                aria-haspopup="true"
-                onClick={handleClick}
-              >
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              </Button>
-              <Menu
-                id="simple-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-              >
-                <Link to="myProfile" className={classes.aRemoveDefault}>
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                </Link>
-                <Link to="myBots" className={classes.aRemoveDefault}>
-                  <MenuItem onClick={handleClose}>My Bots</MenuItem>
-                </Link>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-              </Menu>
-            </Box> */}
-            {/* Code for user menu ends */}
           </Grid>
         </Toolbar>
       </AppBar>

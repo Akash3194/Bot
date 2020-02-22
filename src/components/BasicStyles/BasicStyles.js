@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft: "1.5rem",
   },
   mt100: {
-    marginTop: "100px",
+    marginTop: "120px",
   },
   widthFluid: {
     width: "100%",
@@ -92,6 +92,22 @@ const useStyles = makeStyles(theme => ({
   },
   bold: {
     fontWeight: "600",
+  },
+  profileImage: {
+    height: "100px",
+    width: "100px",
+  },
+  aRemoveDefault: {
+    textDecoration: "none",
+    color: "black",
+    "&:hover": {
+      color: "blue",
+      cursor: "pointer",
+      // boxShadow: "inset 0 -2px 0 blue",
+    },
+  },
+  ml150: {
+    marginLeft: "150px",
   },
 }));
 
