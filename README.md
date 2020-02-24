@@ -1,4 +1,4 @@
-# SABUTILS DIARY    
+# Bot   
 
 A project based on Node.js app using [Express](http://expressjs.com/).
 
@@ -15,7 +15,7 @@ Make sure you make required changes for the following configuration:
 ## Running Locally
 
 ```sh
-$ git clone https://github.com/ashit1303/Diary.git # or clone your own fork
+$ git clone https://github.com/Adishjain58/Bot.git # or clone your own fork
 $ cd Dairy
 $ npm install
 $ npm start
